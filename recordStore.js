@@ -12,6 +12,12 @@ RecordStore.prototype = {
 
   recordCount: function() {
     return this.inventory.length;
+  },
+
+  listRecords: function() {
+    this.inventory.map(function(record) {
+      return "Artist: " + artist.artist + " - " + "Album: " + album.album;
+    });
   }
 
 };

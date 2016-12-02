@@ -37,4 +37,8 @@ describe( "record", function() {
     assert.equal(1, recordStore.recordCount());
   });
 
+  it("can list all records in store", function() {
+    assert.equal("Artist: Queen - Album: A Day At The Races Artist: Muse - Album: Origin Of Symmetry Artist: Radiohead - Album: OK Computer", recordStore.listRecords());
+  });
+
 });
