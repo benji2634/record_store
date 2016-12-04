@@ -2,7 +2,7 @@ var Record = require('../record');
 var RecordStore = require('../recordStore');
 var assert = require('assert');
 
-describe( "record", function() {
+describe( "record store", function() {
 
   var recordStore;
   var record1;
@@ -41,9 +41,19 @@ describe( "record", function() {
     recordStore.addRecord(record1);
     recordStore.addRecord(record2);
     recordStore.addRecord(record3);
-    console.log(recordStore.listRecords());
     var listExpected = "Artist: Queen - Album: A Day At The Races\nArtist: Muse - Album: Origin Of Symmetry\nArtist: Radiohead - Album: OK Computer";
     assert.equal(listExpected, recordStore.listRecords());
   });
+
+  it("can sell a record from the store", function() {
+    recordStore.addRecord(record1);
+    recordStore.addRecord(record2);
+    recordStore.addRecord(record3);
+    recordStore.sellRecord(record1);
+    console.log(recordStore);
+    assert.equal(2, recordStore.recordCount());
+    assert.equal(2009.99, recordStore.balance);
+
+  })
 
 });
