@@ -15,10 +15,12 @@ RecordStore.prototype = {
   },
 
   listRecords: function() {
-    this.inventory.map(function(record) {
-      return "Artist: " + artist.artist + " - " + "Album: " + album.album;
+    var inventoryList = this.inventory.map(function(record) {
+      return "Artist: " + record.artist + " - " + "Album: " + record.album;
     });
-  }
+    return inventoryList.join('\n');
+  },
 
 };
+
 module.exports = RecordStore;

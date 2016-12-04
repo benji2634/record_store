@@ -12,8 +12,8 @@ describe( "record", function() {
   beforeEach(function() {
     recordStore = new RecordStore("Smelly Cat", "New York", []);
     record1 = new Record("Queen", "A Day At The Races", 9.99); 
-    record1 = new Record("Muse", "Origin Of Symmetry", 9.99); 
-    record1 = new Record("Radiohead", "OK Computer", 9.99); 
+    record2 = new Record("Muse", "Origin Of Symmetry", 9.99); 
+    record3 = new Record("Radiohead", "OK Computer", 9.99); 
   });
 
   it("record store has name", function() {
@@ -38,7 +38,12 @@ describe( "record", function() {
   });
 
   it("can list all records in store", function() {
-    assert.equal("Artist: Queen - Album: A Day At The Races Artist: Muse - Album: Origin Of Symmetry Artist: Radiohead - Album: OK Computer", recordStore.listRecords());
+    recordStore.addRecord(record1);
+    recordStore.addRecord(record2);
+    recordStore.addRecord(record3);
+    console.log(recordStore.listRecords());
+    var listExpected = "Artist: Queen - Album: A Day At The Races\nArtist: Muse - Album: Origin Of Symmetry\nArtist: Radiohead - Album: OK Computer";
+    assert.equal(listExpected, recordStore.listRecords());
   });
 
 });
